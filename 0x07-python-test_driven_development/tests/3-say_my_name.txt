@@ -1,0 +1,43 @@
+# this run test with python3 -m doctest -v ./tests/3-say_my_name.txt
+
+First test
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+SUCCESS :
+
+Test two strings:
+     >>> say_my_name("First", "Sandra dolly")
+     My name is Sandra dolly
+
+     >>> say_my_name(Talent")
+     My name is Talent
+
+FAIL :
+
+Test data types:
+     >>> say_my_name(123, "dolly")
+     Traceback (most recent call last):
+     ...
+     TypeError: first_name must be a string
+
+     >>> say_my_name("Sandra", ["Ng", "Hello"])
+     Traceback (most recent call last):
+     ...
+     TypeError: last_name must be a string
+
+Test args:
+     >>> say_my_name("Sandra", "Ng", "extra")
+     Traceback (most recent call last):
+     ...
+     TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+Test too few args:
+     >>> say_my_name()
+     Traceback (most recent call last):
+     ...
+     TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+     >>> say_my_name(None)
+     Traceback (most recent call last):
+     ...
+     TypeError: first_name must be a string
